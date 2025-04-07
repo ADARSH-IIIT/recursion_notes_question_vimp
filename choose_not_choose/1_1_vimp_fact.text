@@ -1,0 +1,53 @@
+
+FACT NUMBER 1 --------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+if we go with not choose then choose , then for temp-vec we cant use & , to save space , we have to create a new copy on each call , logic new ele is embedding always 
+this will cause space comp of n^2 ,  n for new copy of vector and n for waiting recusrive call in stack ==> n*n 
+
+
+if we want to save space we can use & , pass by refersnce for both original array as well as temp array 
+
+not choose --> choose will fail
+go with 
+
+choose ----> not choose 
+
+this wont cause any issue , even temp vector is global , still everything is perfect 
+cross check by drawing rec tree and writing global temp vevtor for each node 
+
+
+
+
+what should i do 
+
+
+
+as a beginner always solve problem with out using & pas by ref , as  it may possible that when in same function , during below function call , the gloval var
+is changed 
+
+
+first do not use & 
+then try to reduce space if possible using & operator 
+
+
+
+or if in calse & u want not choose then choose 
+
+not choose ===> then choose ==> just below choose , add pop statement , so that on return added ele get popped 
+
+
+
+   ------------not choose code here ---------------------
+
+ ----------------------- not choose code over ----------------------
+   ///////////  choosing current ele 
+      tempvec.push_back(  vec[i] ) ; 
+      //////// baki ka koi aur dekh lega 
+      printallsubseq( vec , i+1 , tempvec  ) ; 
+      tempvec.push_back(  vec[i] ) ;           ///// on return it will be deleted 
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
